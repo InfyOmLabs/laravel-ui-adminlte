@@ -3,26 +3,17 @@
 namespace InfyOm\AdminLTEPreset;
 
 use Illuminate\Console\Command;
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use InfyOm\GeneratorHelpers\LaravelUtils;
 use Laravel\Ui\Presets\Preset;
+use Symfony\Component\Finder\SplFileInfo;
 
 class AdminLTEPreset extends Preset
 {
     /** @var Command */
     protected $command;
-
-    protected $views = [
-        'auth/login.stub' => 'auth/login.blade.php',
-        'auth/passwords/confirm.stub' => 'auth/passwords/confirm.blade.php',
-        'auth/passwords/email.stub' => 'auth/passwords/email.blade.php',
-        'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
-        'auth/register.stub' => 'auth/register.blade.php',
-        'auth/verify.stub' => 'auth/verify.blade.php',
-        'home.stub' => 'home.blade.php',
-        'layouts/app.stub' => 'layouts/app.blade.php',
-        'layouts/menu.stub' => 'layouts/menu.blade.php',
-        'layouts/sidebar.stub' => 'layouts/sidebar.blade.php',
-    ];
 
     public function __construct(Command $command)
     {
@@ -79,22 +70,10 @@ class AdminLTEPreset extends Preset
     {
         $viewsPath = LaravelUtils::getViewPath();
 
-        $this->ensureDirectoriesExist($viewsPath);;
+        $this->ensureDirectoriesExist($viewsPath);
 
-        foreach ($this->views as $key => $value) {
-            if (file_exists($view = LaravelUtils::getViewPath($value))) {
-                if (!$this->command->confirm("The [{$value}] view already exists. Do you want to replace it?")) {
-                    continue;
-                }
-            }
-
-            copy(
-                __DIR__.'/../adminlte-stubs/'.$key,
-                $view
-            );
-
-            $this->command->info("{$view} copied");
-        }
+        $this->scaffoldAuth();
+        $this->scaffoldController();
     }
 
     protected function ensureDirectoriesExist($viewsPath)
@@ -110,5 +89,57 @@ class AdminLTEPreset extends Preset
         if (!file_exists($viewsPath.'auth/passwords')) {
             mkdir($viewsPath.'auth/passwords', 0755, true);
         }
+    }
+
+    protected function scaffoldController()
+    {
+        if (!is_dir($directory = app_path('Http/Controllers/Auth'))) {
+            mkdir($directory, 0755, true);
+        }
+
+        $filesystem = new Filesystem;
+
+        collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/Auth')))
+            ->each(function (SplFileInfo $file) use ($filesystem) {
+                $filesystem->copy(
+                    $file->getPathname(),
+                    app_path('Http/Controllers/Auth/'.Str::replaceLast('.stub', '.php', $file->getFilename()))
+                );
+            });
+    }
+
+    protected function scaffoldAuth()
+    {
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), $this->compileHomeControllerStub());
+
+        file_put_contents(
+            base_path('routes/web.php'),
+            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+            FILE_APPEND
+        );
+
+        tap(new Filesystem, function ($filesystem) {
+
+            $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
+            $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));
+            $filesystem->copy(__DIR__.'/../adminlte-stubs/home.stub', resource_path('views/home.blade.php'));
+
+            collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
+                ->each(function (SplFileInfo $file) use ($filesystem) {
+                    $filesystem->copy(
+                        $file->getPathname(),
+                        database_path('migrations/'.$file->getFilename())
+                    );
+                });
+        });
+    }
+
+    protected function compileHomeControllerStub()
+    {
+        return str_replace(
+            '{{namespace}}',
+            Container::getInstance()->getNamespace(),
+            file_get_contents(base_path('vendor/laravel/ui/src/Auth/stubs/controllers/HomeController.stub'))
+        );
     }
 }
