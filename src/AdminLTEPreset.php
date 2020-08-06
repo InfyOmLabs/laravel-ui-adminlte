@@ -82,7 +82,7 @@ class AdminLTEPreset extends Preset
         $this->ensureDirectoriesExist($viewsPath);;
 
         foreach ($this->views as $key => $value) {
-            if (file_exists($view = LaravelUtils::getViewPath($value)) && !$this->command->option('force')) {
+            if (file_exists($view = LaravelUtils::getViewPath($value))) {
                 if (!$this->command->confirm("The [{$value}] view already exists. Do you want to replace it?")) {
                     continue;
                 }

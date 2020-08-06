@@ -2,7 +2,6 @@
 
 namespace InfyOm\AdminLTEPreset;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Ui\UiCommand;
 
@@ -10,7 +9,7 @@ class AdminLTEPresetServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        UiCommand::macro('adminlte', function (Command $command) {
+        UiCommand::macro('adminlte', function (UiCommand $command) {
 
             $command->info("AdminLTE Preset called");
 
