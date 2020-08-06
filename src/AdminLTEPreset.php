@@ -122,7 +122,7 @@ class AdminLTEPreset extends Preset
 
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));
-            $filesystem->copy(__DIR__.'/../adminlte-stubs/home.stub', resource_path('views/home.blade.php'));
+            $filesystem->copy(__DIR__.'/../adminlte-stubs/home.blade.php', resource_path('views/home.blade.php'));
 
             collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
                 ->each(function (SplFileInfo $file) use ($filesystem) {
