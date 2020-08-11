@@ -1,6 +1,6 @@
 # Laravel UI AdminLTE
 
-Laravel Frontend preset for [AdminLTE3](https://adminlte.io/themes/v3/) Theme.
+[Laravel Frontend Scaffolding](https://laravel.com/docs/7.x/frontend) for [AdminLTE3](https://adminlte.io/themes/v3/) Theme.
 
 ## Installation
 
