@@ -11,8 +11,6 @@ class AdminLTEPresetServiceProvider extends ServiceProvider
     {
         UiCommand::macro('adminlte', function (UiCommand $command) {
 
-            $command->info("AdminLTE Preset called");
-
             $adminLTEPreset = new AdminLTEPreset($command);
             $adminLTEPreset->install();
 
