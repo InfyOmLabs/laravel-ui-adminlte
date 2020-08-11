@@ -73,7 +73,6 @@ class AdminLTEPreset extends Preset
         $this->ensureDirectoriesExist($viewsPath);
 
         $this->scaffoldAuth();
-        $this->scaffoldController();
     }
 
     protected function ensureDirectoriesExist($viewsPath)
@@ -91,23 +90,6 @@ class AdminLTEPreset extends Preset
         }
     }
 
-    protected function scaffoldController()
-    {
-        if (!is_dir($directory = app_path('Http/Controllers/Auth'))) {
-            mkdir($directory, 0755, true);
-        }
-
-        $filesystem = new Filesystem;
-
-        collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/Auth')))
-            ->each(function (SplFileInfo $file) use ($filesystem) {
-                $filesystem->copy(
-                    $file->getPathname(),
-                    app_path('Http/Controllers/Auth/'.Str::replaceLast('.stub', '.php', $file->getFilename()))
-                );
-            });
-    }
-
     protected function scaffoldAuth()
     {
         file_put_contents(app_path('Http/Controllers/HomeController.php'), $this->compileHomeControllerStub());
@@ -123,14 +105,6 @@ class AdminLTEPreset extends Preset
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));
             $filesystem->copy(__DIR__.'/../adminlte-stubs/home.blade.php', resource_path('views/home.blade.php'));
-
-            collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/migrations')))
-                ->each(function (SplFileInfo $file) use ($filesystem) {
-                    $filesystem->copy(
-                        $file->getPathname(),
-                        database_path('migrations/'.$file->getFilename())
-                    );
-                });
         });
     }
 
