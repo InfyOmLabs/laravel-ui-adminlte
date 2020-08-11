@@ -8,6 +8,10 @@ Run a command,
 
 `composer require infyomlabs/laravel-ui-adminlte`
 
+For Laravel 6,
+
+`composer require infyomlabs/laravel-ui-adminlte:^1.0`
+
 ## Usage
 
 Run a command,
