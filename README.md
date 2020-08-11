@@ -36,4 +36,16 @@ Or for production,
 
 ### Login
 
-![Login](/screenshots/01. Login.png)
+![Login](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Login.png)
+
+### Register
+
+![Register](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Register.png)
+
+### Reset Password Form
+
+![Reset Password Form](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Reset-Password-Form.png)
+
+### Reset Password
+
+![Reset Password](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Reset-Password.png)
