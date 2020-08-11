@@ -15,10 +15,10 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
-        "illuminate/support": "^7.0",
-        "infyomlabs/laravel-generator-helpers": "dev-master",
-        "laravel/ui": "^2.0"
+        "php": "^7.1.3",
+        "illuminate/support": "^6.0",
+        "infyomlabs/laravel-generator-helpers": "1.x-dev",
+        "laravel/ui": "^1.0"
     },
     "autoload": {
         "psr-4": {
