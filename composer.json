@@ -17,7 +17,7 @@
     "require": {
         "php": "^7.2.5",
         "illuminate/support": "^7.0",
-        "infyomlabs/laravel-generator-helpers": "dev-master",
+        "infyomlabs/laravel-generator-helpers": "^2.0",
         "laravel/ui": "^2.0"
     },
     "autoload": {
