@@ -1,5 +1,11 @@
 # Laravel UI AdminLTE
 
+[![Total Downloads](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/downloads)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
+[![Monthly Downloads](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/d/monthly)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
+[![Daily Downloads](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/d/daily)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
+[![License](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/license)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
+[![Build Status](https://travis-ci.org/InfyOmLabs/laravel-ui-adminlte.svg?branch=test-cases)](https://travis-ci.org/InfyOmLabs/laravel-ui-adminlte)
+
 [Laravel Frontend Scaffolding](https://laravel.com/docs/7.x/frontend) for [AdminLTE3](https://adminlte.io/themes/v3/) Theme.
 
 ## Installation
