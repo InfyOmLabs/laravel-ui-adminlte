@@ -5,10 +5,8 @@ namespace InfyOm\AdminLTEPreset;
 use Illuminate\Console\Command;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
 use InfyOm\GeneratorHelpers\LaravelUtils;
 use Laravel\Ui\Presets\Preset;
-use Symfony\Component\Finder\SplFileInfo;
 
 class AdminLTEPreset extends Preset
 {
@@ -23,17 +21,18 @@ class AdminLTEPreset extends Preset
     /**
      * Update the given package array.
      *
-     * @param  array  $packages
+     * @param array $packages
+     *
      * @return array
      */
     protected static function updatePackageArray(array $packages)
     {
         return [
-                'bootstrap' => '^4.0.0',
-                'jquery' => '^3.2',
-                'popper.js' => '^1.12',
-                'admin-lte' => '^3.0',
-            ] + $packages;
+            'bootstrap' => '^4.0.0',
+            'jquery'    => '^3.2',
+            'popper.js' => '^1.12',
+            'admin-lte' => '^3.0',
+        ] + $packages;
     }
 
     public function install()
@@ -101,7 +100,6 @@ class AdminLTEPreset extends Preset
         );
 
         tap(new Filesystem(), function ($filesystem) {
-
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));
             $filesystem->copy(__DIR__.'/../adminlte-stubs/home.blade.php', resource_path('views/home.blade.php'));
