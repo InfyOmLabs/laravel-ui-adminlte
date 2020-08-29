@@ -100,7 +100,7 @@ class AdminLTEPreset extends Preset
             FILE_APPEND
         );
 
-        tap(new Filesystem, function ($filesystem) {
+        tap(new Filesystem(), function ($filesystem) {
 
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));

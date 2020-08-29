@@ -10,7 +10,6 @@ class AdminLTEPresetServiceProvider extends ServiceProvider
     public function boot()
     {
         UiCommand::macro('adminlte', function (UiCommand $command) {
-
             $adminLTEPreset = new AdminLTEPreset($command);
             $adminLTEPreset->install();
 
