@@ -23,17 +23,18 @@ class AdminLTEPreset extends Preset
     /**
      * Update the given package array.
      *
-     * @param  array  $packages
+     * @param array $packages
+     *
      * @return array
      */
     protected static function updatePackageArray(array $packages)
     {
         return [
-                'bootstrap' => '^4.0.0',
-                'jquery' => '^3.2',
-                'popper.js' => '^1.12',
-                'admin-lte' => '^3.0',
-            ] + $packages;
+            'bootstrap' => '^4.0.0',
+            'jquery'    => '^3.2',
+            'popper.js' => '^1.12',
+            'admin-lte' => '^3.0',
+        ] + $packages;
     }
 
     public function install()
@@ -97,7 +98,7 @@ class AdminLTEPreset extends Preset
             mkdir($directory, 0755, true);
         }
 
-        $filesystem = new Filesystem;
+        $filesystem = new Filesystem();
 
         collect($filesystem->allFiles(base_path('vendor/laravel/ui/stubs/Auth')))
             ->each(function (SplFileInfo $file) use ($filesystem) {
@@ -118,8 +119,7 @@ class AdminLTEPreset extends Preset
             FILE_APPEND
         );
 
-        tap(new Filesystem, function ($filesystem) {
-
+        tap(new Filesystem(), function ($filesystem) {
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/layouts', resource_path('views/layouts'));
             $filesystem->copy(__DIR__.'/../adminlte-stubs/home.blade.php', resource_path('views/home.blade.php'));
