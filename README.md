@@ -31,3 +31,25 @@ And then run,
 Or for production,
 
 `npm install && npm run prod`
+
+## Screenshots
+
+### Login
+
+![Login](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Login.png)
+
+### Register
+
+![Register](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Register.png)
+
+### Reset Password Form
+
+![Reset Password Form](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Reset-Password-Form.png)
+
+### Reset Password
+
+![Reset Password](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Reset-Password.png)
+
+### Admin Layout
+
+![Reset Password](https://raw.github.com/InfyOmLabs/laravel-ui-adminlte/master/screenshots/Admin-Layout.png)
