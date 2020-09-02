@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('admin-lte')
+require('admin-lte');
