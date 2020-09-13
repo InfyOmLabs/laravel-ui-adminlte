@@ -30,13 +30,13 @@ class AdminLTEPreset extends Preset
     protected static function updatePackageArray(array $packages)
     {
         return [
-                'bootstrap' => '^4.0.0',
-                'jquery' => '^3.2',
-                'popper.js' => '^1.12',
-                'admin-lte' => '^3.0',
-                'sass' => '^1.15.2',
-                'sass-loader' => '^8.0.0',
-            ] + $packages;
+            'bootstrap'   => '^4.0.0',
+            'jquery'      => '^3.2',
+            'popper.js'   => '^1.12',
+            'admin-lte'   => '^3.0',
+            'sass'        => '^1.15.2',
+            'sass-loader' => '^8.0.0',
+        ] + $packages;
     }
 
     public function install()
@@ -65,7 +65,7 @@ class AdminLTEPreset extends Preset
      */
     protected static function updateSass()
     {
-        (new Filesystem)->ensureDirectoryExists(resource_path('sass'));
+        (new Filesystem())->ensureDirectoryExists(resource_path('sass'));
 
         copy(__DIR__.'/../adminlte-stubs/bootstrap/_variables.scss', resource_path('sass/_variables.scss'));
         copy(__DIR__.'/../adminlte-stubs/bootstrap/app.scss', resource_path('sass/app.scss'));
