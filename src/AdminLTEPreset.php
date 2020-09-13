@@ -30,19 +30,32 @@ class AdminLTEPreset extends Preset
     protected static function updatePackageArray(array $packages)
     {
         return [
-            'bootstrap' => '^4.0.0',
-            'jquery'    => '^3.2',
-            'popper.js' => '^1.12',
-            'admin-lte' => '^3.0',
-        ] + $packages;
+                'bootstrap' => '^4.0.0',
+                'jquery' => '^3.2',
+                'popper.js' => '^1.12',
+                'admin-lte' => '^3.0',
+                'sass' => '^1.15.2',
+                'sass-loader' => '^8.0.0',
+            ] + $packages;
     }
 
     public function install()
     {
         static::updatePackages();
+        static::updateWebpackConfiguration();
         static::updateSass();
         static::updateBootstrapping();
         static::removeNodeModules();
+    }
+
+    /**
+     * Update the Webpack configuration.
+     *
+     * @return void
+     */
+    protected static function updateWebpackConfiguration()
+    {
+        copy(__DIR__.'/../adminlte-stubs/bootstrap/webpack.mix.js', base_path('webpack.mix.js'));
     }
 
     /**
@@ -52,6 +65,8 @@ class AdminLTEPreset extends Preset
      */
     protected static function updateSass()
     {
+        (new Filesystem)->ensureDirectoryExists(resource_path('sass'));
+
         copy(__DIR__.'/../adminlte-stubs/bootstrap/_variables.scss', resource_path('sass/_variables.scss'));
         copy(__DIR__.'/../adminlte-stubs/bootstrap/app.scss', resource_path('sass/app.scss'));
     }
@@ -115,7 +130,7 @@ class AdminLTEPreset extends Preset
 
         file_put_contents(
             base_path('routes/web.php'),
-            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+            "Auth::routes();\n\nRoute::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');\n\n",
             FILE_APPEND
         );
 
