@@ -25,27 +25,27 @@ class FortifyAdminLTEPresetServiceProvider extends ServiceProvider
         });
 
         Fortify::loginView(function () {
-            view('auth.login');
+            return view('auth.login');
         });
 
         Fortify::registerView(function () {
-            view('auth.register');
+            return view('auth.register');
         });
 
         Fortify::confirmPasswordView(function () {
-            view('auth.passwords.confirm');
+            return view('auth.passwords.confirm');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            view('auth.passwords.email');
+            return view('auth.passwords.email');
         });
 
         Fortify::resetPasswordView(function (Request $request) {
-            view('auth.passwords.reset');
+            return view('auth.passwords.reset');
         });
 
         Fortify::verifyEmailView(function () {
-            view('auth.verify');
+            return view('auth.verify');
         });
     }
 }
