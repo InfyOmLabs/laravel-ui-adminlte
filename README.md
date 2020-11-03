@@ -41,7 +41,7 @@ Or for production,
 
 `npm install && npm run prod`
 
-## Usage with Laravel Fortify
+## Usage with Laravel Fortify (Laravel 8.x only)
 
 This package also provides support for Laravel Fortify for authentication scaffolding.
 
