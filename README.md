@@ -4,7 +4,6 @@
 [![Monthly Downloads](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/d/monthly)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
 [![Daily Downloads](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/d/daily)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
 [![License](https://poser.pugx.org/infyomlabs/laravel-ui-adminlte/license)](https://packagist.org/packages/infyomlabs/laravel-ui-adminlte)
-[![Build Status](https://travis-ci.org/InfyOmLabs/laravel-ui-adminlte.svg?branch=test-cases)](https://travis-ci.org/InfyOmLabs/laravel-ui-adminlte)
 
 [Laravel Frontend Scaffolding](https://laravel.com/docs/7.x/frontend) for [AdminLTE3](https://adminlte.io/themes/v3/) Theme.
 
@@ -13,6 +12,10 @@
 Run a command,
 
 `composer require infyomlabs/laravel-ui-adminlte`
+
+For Laravel 7,
+
+`composer require infyomlabs/laravel-ui-adminlte:^2.0`
 
 For Laravel 6,
 
@@ -29,6 +32,24 @@ To Generate a full authentication UI,
 To Install just AdminLTE theme assets,
 
 `php artisan ui adminlte`
+
+And then run,
+
+`npm install && npm run dev`
+
+Or for production,
+
+`npm install && npm run prod`
+
+## Usage with Laravel Fortify (Laravel 8.x only)
+
+This package also provides support for Laravel Fortify for authentication scaffolding.
+
+**NOTE**: Don't forget to install and run Laravel Fortify and perform its required installation steps.
+
+Run a command,
+
+`php artisan ui adminlte-fortify --auth`
 
 And then run,
 

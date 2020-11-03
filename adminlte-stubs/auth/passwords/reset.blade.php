@@ -28,6 +28,12 @@
             <form action="{{ route('password.update') }}" method="POST">
                 @csrf
 
+                @php
+                    if (!isset($token)) {
+                        $token = \Request::route('token');
+                    }
+                @endphp
+
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="input-group mb-3">
