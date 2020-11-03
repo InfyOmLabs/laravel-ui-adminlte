@@ -41,7 +41,7 @@ class FortifyAdminLTEPresetServiceProvider extends ServiceProvider
                 return view('auth.passwords.email');
             });
 
-            Fortify::resetPasswordView(function (Request $request) {
+            Fortify::resetPasswordView(function () {
                 return view('auth.passwords.reset');
             });
 
