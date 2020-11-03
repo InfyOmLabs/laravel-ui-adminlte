@@ -15,15 +15,18 @@ class AdminLTEPreset extends Preset
     /** @var Command */
     protected $command;
 
-    public function __construct(Command $command)
+    public $isFortify = false;
+
+    public function __construct(Command $command, $isFortify = false)
     {
         $this->command = $command;
+        $this->isFortify = $isFortify;
     }
 
     /**
      * Update the given package array.
      *
-     * @param array $packages
+     * @param  array  $packages
      *
      * @return array
      */
@@ -89,7 +92,10 @@ class AdminLTEPreset extends Preset
         $this->ensureDirectoriesExist($viewsPath);
 
         $this->scaffoldAuth();
-        $this->scaffoldController();
+
+        if (!$this->isFortify) {
+            $this->scaffoldController();
+        }
     }
 
     protected function ensureDirectoriesExist($viewsPath)
@@ -105,6 +111,24 @@ class AdminLTEPreset extends Preset
         if (!file_exists($viewsPath.'auth/passwords')) {
             mkdir($viewsPath.'auth/passwords', 0755, true);
         }
+    }
+
+    private function addAuthRoutes()
+    {
+        file_put_contents(
+            base_path('routes/web.php'),
+            "\nAuth::routes();\n",
+            FILE_APPEND
+        );
+    }
+
+    private function addHomeRoute()
+    {
+        file_put_contents(
+            base_path('routes/web.php'),
+            "\nRoute::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');\n\n",
+            FILE_APPEND
+        );
     }
 
     protected function scaffoldController()
@@ -128,11 +152,11 @@ class AdminLTEPreset extends Preset
     {
         file_put_contents(app_path('Http/Controllers/HomeController.php'), $this->compileHomeControllerStub());
 
-        file_put_contents(
-            base_path('routes/web.php'),
-            "Auth::routes();\n\nRoute::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');\n\n",
-            FILE_APPEND
-        );
+        $this->addHomeRoute();
+
+        if (!$this->isFortify) {
+            $this->addAuthRoutes();
+        }
 
         tap(new Filesystem(), function ($filesystem) {
             $filesystem->copyDirectory(__DIR__.'/../adminlte-stubs/auth', resource_path('views/auth'));
