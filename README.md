@@ -41,6 +41,24 @@ Or for production,
 
 `npm install && npm run prod`
 
+## Usage with Laravel Fortify
+
+This package also provides support for Laravel Fortify for authentication scaffolding.
+
+**NOTE**: Don't forget to install and run Laravel Fortify and perform its required installation steps.
+
+Run a command,
+
+`php artisan ui adminlte-fortify --auth`
+
+And then run,
+
+`npm install && npm run dev`
+
+Or for production,
+
+`npm install && npm run prod`
+
 ## Tutorial
 Here you can find a video tutorial. (**Credits**: [shailesh-ladumor](https://github.com/shailesh-ladumor))
 
