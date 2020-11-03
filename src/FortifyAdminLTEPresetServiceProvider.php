@@ -24,28 +24,30 @@ class FortifyAdminLTEPresetServiceProvider extends ServiceProvider
             $command->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
         });
 
-        Fortify::loginView(function () {
-            return view('auth.login');
-        });
+        if (class_exists(Fortify::class)) {
+            Fortify::loginView(function () {
+                view('auth.login');
+            });
 
-        Fortify::registerView(function () {
-            return view('auth.register');
-        });
+            Fortify::registerView(function () {
+                view('auth.register');
+            });
 
-        Fortify::confirmPasswordView(function () {
-            return view('auth.passwords.confirm');
-        });
+            Fortify::confirmPasswordView(function () {
+                view('auth.passwords.confirm');
+            });
 
-        Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.passwords.email');
-        });
+            Fortify::requestPasswordResetLinkView(function () {
+                view('auth.passwords.email');
+            });
 
-        Fortify::resetPasswordView(function (Request $request) {
-            return view('auth.passwords.reset');
-        });
+            Fortify::resetPasswordView(function (Request $request) {
+                view('auth.passwords.reset');
+            });
 
-        Fortify::verifyEmailView(function () {
-            return view('auth.verify');
-        });
+            Fortify::verifyEmailView(function () {
+                view('auth.verify');
+            });
+        }
     }
 }

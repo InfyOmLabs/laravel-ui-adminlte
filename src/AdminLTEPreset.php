@@ -126,7 +126,7 @@ class AdminLTEPreset extends Preset
     {
         file_put_contents(
             base_path('routes/web.php'),
-            "\nRoute::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');\n\n",
+            "\nRoute::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');\n",
             FILE_APPEND
         );
     }
