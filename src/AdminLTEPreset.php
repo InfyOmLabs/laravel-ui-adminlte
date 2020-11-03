@@ -26,7 +26,7 @@ class AdminLTEPreset extends Preset
     /**
      * Update the given package array.
      *
-     * @param  array  $packages
+     * @param array $packages
      *
      * @return array
      */
