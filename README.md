@@ -61,6 +61,7 @@ Or for production,
 
 `npm install && npm run prod`
 
+
 ## Support Us
 
 We have created [14+ Laravel packages](https://github.com/InfyOmLabs) and invested a lot of resources into creating these all packages and maintaining them.
@@ -90,6 +91,10 @@ You can also check out our other paid products on [CodeCanyon](https://codecanyo
 Checkout Video Tutorial - **By**: [Shailesh Ladumor](https://github.com/shailesh-ladumor)
 
 [<img src="https://img.youtube.com/vi/jA7hr2gE9yc/0.jpg" width="480">](https://youtu.be/jA7hr2gE9yc)
+
+Checkout Laravel Fortify Video Tutorial 
+
+[<img src="https://img.youtube.com/vi/2lHFnYLTHSI/0.jpg" width="480">](https://youtu.be/2lHFnYLTHSI)
 
 ## Screenshots
 
