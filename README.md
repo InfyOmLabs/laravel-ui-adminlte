@@ -1,4 +1,4 @@
-<h1 align="center"><img src="http://infyom.com/images/logo-red-black.png" alt="InfyOm"></h1>
+<h1 align="center"><img src="https://assets.infyom.com/open-source/infyom-logo.png" alt="InfyOm"></h1>
 
 # Laravel UI AdminLTE
 
