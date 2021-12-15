@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "illuminate/support": "^8.0",
         "infyomlabs/laravel-generator-helpers": "^3.0",
         "laravel/ui": "^3.0"
