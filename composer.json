@@ -32,5 +32,11 @@
                 "InfyOm\\AdminLTEPreset\\FortifyAdminLTEPresetServiceProvider"
             ]
         }
-    }
+    },
+    "funding": [
+        {
+            "type": "opencollective",
+            "url": "https://opencollective.com/infyomlabs"
+        }
+    ]
 }

@@ -81,7 +81,7 @@ You can support us by either sponsoring us or buying one of our paid products. O
 
 ### Buy our Paid Products
 
-[![InfyChat](https://assets.infyom.com/open-source/infychat-banner.png)](https://bit.ly/3gYLWny)
+[![InfyChat](https://assets.infyom.com/open-source/infychat-banner.png)](https://1.envato.market/jWeAmM)
 
 You can also check out our other paid products on [CodeCanyon](https://codecanyon.net/user/infyomlabs/portfolio).
 
@@ -102,6 +102,10 @@ Also, Do not forget to add your website to [Made with InfyOm Generator List](htt
 Checkout Video Tutorial - **By**: [Shailesh Ladumor](https://github.com/shailesh-ladumor)
 
 [<img src="https://img.youtube.com/vi/jA7hr2gE9yc/0.jpg" width="480">](https://youtu.be/jA7hr2gE9yc)
+
+Checkout Laravel Fortify Video Tutorial 
+
+[<img src="https://img.youtube.com/vi/2lHFnYLTHSI/0.jpg" width="480">](https://youtu.be/2lHFnYLTHSI)
 
 ## Screenshots
 
