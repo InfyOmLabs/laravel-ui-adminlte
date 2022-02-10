@@ -33,6 +33,7 @@ class AdminLTEPreset extends Preset
     protected static function updatePackageArray(array $packages)
     {
         return [
+            'bootstrap'   => '^4.6.1',
             'admin-lte'   => '^3.2',
             'sass'        => '^1.32.11',
             'sass-loader' => '^11.0.1',
