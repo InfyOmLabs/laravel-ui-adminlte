@@ -33,10 +33,10 @@ class AdminLTEPreset extends Preset
     protected static function updatePackageArray(array $packages)
     {
         return [
-            'bootstrap'   => '^4.0.0',
-            'jquery'      => '^3.2',
-            'popper.js'   => '^1.12',
-            'admin-lte'   => '^3.0',
+            'bootstrap'   => '^4.6.0',
+            'jquery'      => '^3.6',
+            'popper.js'   => '^1.16.1',
+            'admin-lte'   => '3.1.0',
             'sass'        => '^1.15.2',
             'sass-loader' => '^8.0.0',
         ] + $packages;
