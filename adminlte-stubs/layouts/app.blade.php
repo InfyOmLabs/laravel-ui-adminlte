@@ -11,7 +11,7 @@
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-    @yield('third_party_stylesheets')
+    @stack('third_party_stylesheets')
 
     @stack('page_css')
 </head>
@@ -79,9 +79,9 @@
     </footer>
 </div>
 
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}"></script>
 
-@yield('third_party_scripts')
+@stack('third_party_scripts')
 
 @stack('page_scripts')
 </body>
