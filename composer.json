@@ -28,8 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "InfyOm\\AdminLTEPreset\\AdminLTEPresetServiceProvider",
-                "InfyOm\\AdminLTEPreset\\FortifyAdminLTEPresetServiceProvider"
+                "InfyOm\\AdminLTEPreset\\AdminLTEPresetServiceProvider"
             ]
         }
     },
