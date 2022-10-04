@@ -18,7 +18,7 @@
         "php": "^8.0",
         "illuminate/support": "^9.0",
         "infyomlabs/laravel-generator-helpers": "^4.0",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^4.0"
     },
     "autoload": {
         "psr-4": {
