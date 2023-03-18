@@ -42,20 +42,20 @@ class AdminLTELocalizedPreset extends Preset
     public function install()
     {
         static::updatePackages();
-        static::updateWebpackConfiguration();
+        static::updateViteConfiguration();
         static::updateSass();
         static::updateBootstrapping();
         static::removeNodeModules();
     }
 
     /**
-     * Update the Webpack configuration.
+     * Update the Vite configuration.
      *
      * @return void
      */
-    protected static function updateWebpackConfiguration()
+    protected static function updateViteConfiguration()
     {
-        copy(__DIR__.'/../adminlte-stubs/bootstrap/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'../adminlte-stubs/bootstrap/vite.config.js', base_path('vite.config.js'));
     }
 
     /**

@@ -9,6 +9,8 @@ class AdminLTEPresetServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-ui-adminlte');
+
         UiCommand::macro('adminlte', function (UiCommand $command) {
             $adminLTEPreset = new AdminLTEPreset($command);
             $adminLTEPreset->install();
