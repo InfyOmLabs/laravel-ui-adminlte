@@ -55,7 +55,7 @@ class AdminLTELocalizedPreset extends Preset
      */
     protected static function updateViteConfiguration()
     {
-        copy(__DIR__.'../adminlte-stubs/bootstrap/vite.config.js', base_path('vite.config.js'));
+        copy(__DIR__.'/../adminlte-stubs/bootstrap/vite.config.js', base_path('vite.config.js'));
     }
 
     /**
